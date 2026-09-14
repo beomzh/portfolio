@@ -1,0 +1,32 @@
+---
+import { profile } from '../data/profile';
+
+const path = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/career', label: 'Career & Skills' },
+  { href: '/projects', label: 'Projects' },
+];
+
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header class="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50/80 backdrop-blur">
+  <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
+    <a href="/" class="font-semibold tracking-tight text-neutral-900">{profile.name}</a>
+    <nav class="flex gap-6 text-sm">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'transition-colors hover:text-red-600',
+            isActive(link.href) ? 'font-medium text-red-600' : 'text-neutral-600',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
