@@ -17,10 +17,10 @@ const { title, domain, company, period, stack, highlights } = entry.data;
 
 <Layout title={title}>
   <section class="mx-auto max-w-3xl px-6 py-16">
-    <a href="/projects" class="text-sm text-neutral-500 hover:text-red-600">&larr; Projects</a>
+    <a href="/projects" class="text-sm text-neutral-500 hover:text-sky-600">&larr; Projects</a>
 
     <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-neutral-500">
-      <span class="rounded-full bg-red-50 px-2.5 py-1 font-medium text-red-700">{domain}</span>
+      <span class="rounded-full bg-sky-50 px-2.5 py-1 font-medium text-sky-700">{domain}</span>
       <span>{company}</span>
       <span>&middot;</span>
       <span>{period}</span>
@@ -35,7 +35,7 @@ const { title, domain, company, period, stack, highlights } = entry.data;
     <ul class="mt-8 space-y-3">
       {highlights.map((h: string) => (
         <li class="flex gap-3 rounded-xl border border-neutral-200 bg-white p-4 text-sm leading-relaxed text-neutral-700">
-          <span class="mt-0.5 text-red-600">&#9679;</span>
+          <span class="mt-0.5 text-sky-600">&#9679;</span>
           <span>{h}</span>
         </li>
       ))}
