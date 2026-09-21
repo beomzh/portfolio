@@ -15,7 +15,7 @@ const isActive = (href: string) =>
 <header class="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50/80 backdrop-blur">
   <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
     <a href="/" class="font-semibold tracking-tight text-neutral-900">{profile.name}</a>
-    <nav class="flex gap-6 text-sm">
+    <nav class="flex items-center gap-6 text-sm">
       {links.map((link) => (
         <a
           href={link.href}
@@ -27,6 +27,13 @@ const isActive = (href: string) =>
           {link.label}
         </a>
       ))}
+      <a
+        href="/resume.pdf"
+        download
+        class="rounded-lg bg-sky-600 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-sky-700"
+      >
+        이력서 다운로드
+      </a>
     </nav>
   </div>
 </header>

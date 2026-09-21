@@ -6,6 +6,21 @@ export type CareerEntry = {
   bullets: string[];
 };
 
+// 총 경력 계산 기준일 (최초 입사일)
+export const careerStartDate = "2023-03-01";
+
+export function getTotalExperience(asOf: Date = new Date()): { years: number; months: number; label: string } {
+  const start = new Date(careerStartDate);
+  let years = asOf.getFullYear() - start.getFullYear();
+  let months = asOf.getMonth() - start.getMonth();
+  if (asOf.getDate() < start.getDate()) months -= 1;
+  if (months < 0) {
+    years -= 1;
+    months += 12;
+  }
+  return { years, months, label: months > 0 ? `${years}년 ${months}개월` : `${years}년` };
+}
+
 export const career: CareerEntry[] = [
   {
     company: "오픈마루㈜ · 클라우드 네이티브팀",
@@ -13,7 +28,7 @@ export const career: CareerEntry[] = [
     period: "2024.07 ~ 재직중",
     current: true,
     bullets: [
-      "RedHat OpenShift Container Platform·RedHat Linux 등 RedHat 제품과 오픈소스를 활용해 고객사 서비스를 클라우드 네이티브 환경으로 전환·구축",
+      "Kubernetes/OpenShift 기반 컨테이너 플랫폼과 오픈소스를 활용해 고객사 서비스를 클라우드 네이티브 환경으로 전환·구축",
       "공공·금융·에너지 분야 프로젝트 다수 수행, WEB/WAS/OS/보안/모니터링 영역 트러블슈팅 가이드 제공",
       "고객사 제안서 작성·기술 검증(PoC) 등 Pre-Sales 활동 병행",
     ],

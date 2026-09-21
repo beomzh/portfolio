@@ -1,14 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SkillBar from '../components/SkillBar.astro';
-import { career } from '../data/career';
+import { career, getTotalExperience } from '../data/career';
 import { skills } from '../data/skills';
 import { certifications } from '../data/certifications';
+
+const experience = getTotalExperience();
 ---
 
 <Layout title="Career & Skills">
   <section class="mx-auto max-w-4xl px-6 py-16">
-    <h1 class="text-2xl font-bold tracking-tight text-neutral-900">Career Timeline</h1>
+    <div class="flex flex-wrap items-center gap-3">
+      <h1 class="text-2xl font-bold tracking-tight text-neutral-900">Career Timeline</h1>
+      <span class="rounded-full bg-lime-100 px-2.5 py-0.5 text-xs font-semibold text-lime-800">
+        총 경력 {experience.label}
+      </span>
+    </div>
 
     <ol class="mt-8 space-y-8 border-l border-neutral-200 pl-6">
       {career.map((c) => (
@@ -18,7 +25,7 @@ import { certifications } from '../data/certifications';
             <h2 class="font-semibold text-neutral-900">{c.company}</h2>
             <span class="text-sm text-neutral-500">
               {c.period}
-              {c.current && <span class="ml-2 rounded-full bg-sky-50 px-2 py-0.5 text-xs font-medium text-sky-700">재직중</span>}
+              {c.current && <span class="ml-2 rounded-full bg-lime-100 px-2 py-0.5 text-xs font-medium text-lime-800">재직중</span>}
             </span>
           </div>
           <p class="mt-0.5 text-sm font-medium text-sky-700">{c.role}</p>
