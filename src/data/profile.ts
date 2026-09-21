@@ -2,6 +2,7 @@ export const profile = {
   name: "김재범",
   nameEn: "Kim Jae Beom",
   title: "Cloud Engineer",
+  photo: "/images/profile.jpg",
   tagline: "Kubernetes 기반 컨테이너 플랫폼 · Private Cloud · Legacy-to-Cloud Migration",
   focusBadges: ["Kubernetes / Container", "Private Cloud", "Legacy to Cloud Migration"],
   intro: [
